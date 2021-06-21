@@ -37,6 +37,3 @@
   d = deque([v,i for i, v in enumerate(list)])
   #deque([(2, 0), (1, 1), (3, 2), (2, 3)])
   ```
-
-  
-
