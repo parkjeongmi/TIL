@@ -37,3 +37,17 @@
   d = deque([v,i for i, v in enumerate(list)])
   #deque([(2, 0), (1, 1), (3, 2), (2, 3)])
   ```
+
+
+
+* List Comprehension
+
+  리스트를 쉽게 생성하기 위한 방법
+
+  ```python
+  list = [x*2 for x in range(11)]
+  #[0,2,4,6,8,10,12,14,16,18,20]
+  ```
+
+  
+
