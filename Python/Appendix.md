@@ -51,11 +51,18 @@
 
   ```python
   list = [1,2,3,4,5]
+<<<<<<< HEAD
   index = [0 * i for i in range(len(list))]
   #index = [0,0,0,0,0] -> list의 길이만큼 0 생성
   ```
   
   
   
+=======
+  index = [0*i for i in range(len(list))]
+  #index = [0,0,0,0,0] -> list의 길이만큼의 0 생성
+  ```
+  
+>>>>>>> daily
   
 

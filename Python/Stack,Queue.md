@@ -15,12 +15,20 @@
 
   선입선출 LILO
 
+<<<<<<< HEAD
   **Deque 사용 (from collections import duque)**
+=======
+  Deque 사용 필요 (from collections import duque)
+>>>>>>> daily
 
   ```python
   list = ['a', 'b', 'c']
   list.append('d')
+<<<<<<< HEAD
   list.popleft() #-> Deque필요하며, popleft는 반환값
+=======
+  list.popleft() #-> deque 필요
+>>>>>>> daily
   #가장 먼저 넣은 a가 가장 먼저 출력됨
   ```
 
