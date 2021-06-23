@@ -5,12 +5,20 @@
 ## 📘 Python
 
 * Stack/Queue
-* Dictionary
 * Sort
+* Search
 * Hash
-* Graph
+* Appendix
 
 
 
-## 📕 JAVA
+## 📕 Java
 
+
+
+
+
+## 📗 Git
+
+* Git Basic
+* Shared Repository
