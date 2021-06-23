@@ -15,10 +15,12 @@
 
   선입선출 LILO
 
+  Deque 사용 필요 (from collections import duque)
+
   ```python
   list = ['a', 'b', 'c']
   list.append('d')
-  list.popleft()
+  list.popleft() #-> deque 필요
   #가장 먼저 넣은 a가 가장 먼저 출력됨
   ```
 
@@ -27,7 +29,7 @@
   양쪽 끝에서 자료를 넣고 뺄 수 있음
 
   ```python
-  from collection import deque
+  from collections import deque
   list = deque()
   
   #오른쪽에 a push하기

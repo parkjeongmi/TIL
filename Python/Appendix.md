@@ -33,7 +33,7 @@
 
   deque과 연계한 enumerate 사용 (프로그래머스/프린터 문제)
 
-  ```py
+  ```python
   d = deque([v,i for i, v in enumerate(list)])
   #deque([(2, 0), (1, 1), (3, 2), (2, 3)])
   ```
@@ -49,5 +49,11 @@
   #[0,2,4,6,8,10,12,14,16,18,20]
   ```
 
+  ```python
+  list = [1,2,3,4,5]
+  index = [0*i for i in range(len(list))]
+  #index = [0,0,0,0,0] -> list의 길이만큼의 0 생성
+  ```
+  
   
 
