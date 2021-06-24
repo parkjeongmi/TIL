@@ -19,6 +19,13 @@
 
 
 
+## 📙 Oracle
+
+* Oracle Basic
+
+
+
 ## 📕 Java
+
 
 
