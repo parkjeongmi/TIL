@@ -120,6 +120,56 @@ Oracle 기본 명령어 정리
   |      LIKE '박_'       | 한 글자 제한 ex) 박_ => 박정, 박미, 박하 검색 |
   | IS NULL / IS NOT NULL | Null 값(혹은 아닌 값) 검색                    |
 
+* ORDER BY (정렬)
+
+  ```plsql
+  select *
+  from student
+  order by depno asc, name desc;
+  --student table를 depno의 오림차순으로 정렬한 후 name 순으로 내림차순 정렬
+  ```
+
+* UNION (합집합)
+
+  두 개의 SELECT 결과 합침
+
+  *매칭되는 column의 **type**이 같아야 함*
+
+  ```plsql
+  select profno, name, depno, 1 from professor where deptno=101
+  union all
+  select studno, name, deptno1, 2 from student where deptno1=101;
+  --합집합 출력 (학생이면 1, 교수면 2로 열 추가함)
+  ```
+
+  * **UNION**은 결과를 합칠 때 중복되는 행은 하나만 표시 (**정렬**도 하고 **중복도 제거**)
+  * **UNION ALL**은 중복 제거 하지 않고 모두 합칠 때 표시 (보이는 그대로)
+
+* INTERSECT (교집합)
+
+  ```plsql
+  select studno, name from student where deptno1=101
+  intersect
+  select studno, name from student where deptno2=201;
+  --교집합 출력
+  ```
+
+* MINUS (차집합)
+
+  ```plsql
+  select studno, name from student where deptno1=101
+  minus
+  select studno, name from student where deptno2=201;
+  --차집합 출력
+  ```
+
+* DISTINCT (중복제거)
+
+  ```plsql
+  select distinct studno, name from student where deptno1=101;
+  --studno, name 두 컬럼 모두 중복 제거하고 출력
+  ```
+
 * 기타
 
   * 큰 따옴표는 띄어쓰기, 작은 따옴표는 문자열
