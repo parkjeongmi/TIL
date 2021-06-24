@@ -3,7 +3,7 @@
 * 문자 함수
 
   | 함수명                           | 의미                                          | 사용예                                                       |
-  | -------------------------------- | --------------------------------------------- | ------------------------------------------------------------ |
+  | :------------------------------- | :-------------------------------------------- | :----------------------------------------------------------- |
   | INITCAP                          | 첫 글자만 대문자 변환                         | Select name, id,  **INITCAP(id)** from professor; #Jamie     |
   | LOWER                            | 전부 소문자 변환                              | Select name, id,  **LOWER(id)** from professor;  #jamie      |
   | UPPER                            | 전부 대문자 변환                              | Select name, id,  **UPPER(id)** from student; #JAMIE         |
@@ -12,13 +12,13 @@
   | CONTACT                          | 두 문자열 결합해서 출력 (\|\|와 동일)         | Select **contact(name, id)** from student; #select name \|\| id from student; |
   | SUBSTR(문자열, 시작 위치, 개수)  | 특정 문자만 추출                              | SUBSTR('abc', 1, 2) #ab #Select name, **substr(name, 1, 1)** from student; |
   | SUBSTRB(문자열, 시작 위치, 개수) | 특정 바이트만 추출                            | SUBSTRB("한글", 1, 2) #한  #Select name, **substrb(name, 1, 3)** from student; |
-  | INSTR(문자열, '특정 문자')       | 특정 문자의 위치                              | SELECT INSTR(TEL,'-')                                        |
+  | INSTR(문자열, '특정 문자')       | 특정 문자의 위치                              | SELECT **INSTR(TEL,'-')**                                    |
   | INSTRB(문자열, '특정 문자')      | 특정 문자의 위치의 바이트 값                  |                                                              |
-  | LPAD(문자열, 자리수, 특정 문자)  | 왼쪽으로 특정 문자를 채움                     | SELECT LPAD(ID, 12, '_') from student;                       |
+  | LPAD(문자열, 자리수, 특정 문자)  | 왼쪽으로 특정 문자를 채움                     | SELECT **LPAD(ID, 12, '_')** from student;                   |
   | RPAD(문자열, 자리수, 특정 문자)  | 오른쪽으로 특정 문자를 채움                   |                                                              |
-  | LTRIM(문자열, 특정문자)          | 왼쪽의 특정 문자를 삭제함                     | SELECT LTRIM(TEL, '02') from student;                        |
+  | LTRIM(문자열, 특정문자)          | 왼쪽의 특정 문자를 삭제함                     | SELECT **LTRIM(TEL, '02')** from student;                    |
   | RTRIM(문자열, 특정문자)          | 오른쪽의 특정 문자를 삭제함                   |                                                              |
-  | REPLACE(문자열, A,B)             | 문자열에서 A를 B로 치환함                     | SELECT NAME, REPLACE(NAME, SUBSTR(NAME, 2, 1), '*') FROM STUDENT; |
+  | REPLACE(문자열, A,B)             | 문자열에서 A를 B로 치환함                     | SELECT NAME, **REPLACE(NAME, SUBSTR(NAME, 2, 1), '*')** FROM STUDENT; |
 
   Q. 전화번호(TEL)에서 괄호( ')' ) 앞까지의 지역 번호를 추출하고 싶을 때 ex) 055, 051, 032, 031
 
@@ -59,3 +59,87 @@
 
   
 
+* 숫자 관련 함수
+
+  |      이름      |            의미             |         사용예         |
+  | :------------: | :-------------------------: | :--------------------: |
+  | ROUND(숫자, m) |           반올림            | ROUND(12.345,2) #12.35 |
+  |     TRUNC      |            버림             | TRUNC(12.345,2) #12.34 |
+  |      MOD       |           나머지            |     MOD(12,10) #2      |
+  |      CEIL      |  가장 근접한 큰 정수(올림)  |    CEIL(12.345) #13    |
+  |     FLOOR      | 가장 근접한 작은 정수(버림) |   FLOOR(12.345) #12    |
+  |     POWER      |   숫자1의 숫자 2승을 출력   |     POWER(3,2) #9      |
+
+  * 반올림 절사 규칙 = 소수점 '.' 기준
+
+    * m의 숫자가 양수 = 소수점 기준 우측 m번째까지 보여줌 ex) round(192.153,1) #192.2
+    * m의 숫자가 음수 = 소수점 기준 왼쪽 m번째에서 반올림 ex) round(192.153, -1) #190
+
+    
+
+* 날짜 관련 함수
+
+  | 함수명                             | 의미                               | 결과 |
+  | ---------------------------------- | ---------------------------------- | ---- |
+  | SYSDATE                            | 시스템의 현재 날짜와 시간          | 날짜 |
+  | MONTHS_BETWEEN(최근날짜, 과거날짜) | 두 날짜 사이의 개월 수             | 숫자 |
+  | ADD_MONTHS(날짜, 더할 개월)        | 주어진 날짜에 개월을 더함          | 날짜 |
+  | NEXT_DAY(날짜, 다음 날짜)          | 날짜를 기준으로 돌아오는 날짜 출력 | 날짜 |
+  | LAST_DAY(날짜)                     | 그 달의 마지막 날짜                | 날짜 |
+  | TRUNC(날짜)                        | 주어진 날짜 버림                   | 날짜 |
+
+  * 날짜 형식을 지정해서 출력
+
+    ALTER SESSION SET NLS_DATE_FORMAT = 'YY/MM/DD';
+
+  * MONTHS_BETWEEN은 '-'로 마이너스 한 것과 유사 => 단, 개월로 출력됨
+
+    ROUND(최근날짜-과거날짜) => 단, 날짜로 출력됨
+
+  
+
+* 형 변환 함수
+
+  | 데이터 타입                   | 설명                             |
+  | ----------------------------- | -------------------------------- |
+  | CHAR(n)                       | 고정길이의 문자 저장             |
+  | **VARCHAR2(n)**               | 변하는 길이의 문자               |
+  | **NUMBER(소수점자리수,크기)** | 숫자 값 저장                     |
+  | **DATE**                      | 날짜 저장                        |
+  | BLOB                          | 가변 길이의 바이너리 데이터 저장 |
+  | LONG                          | 가변 길이의 문자 저장 (2GB)      |
+  | CLOB                          | 가변 길이의 문자 저장 (4GB)      |
+
+  * to_number('바꿀 숫자')
+
+    select 2 + to_number('2') from dual; #4
+
+  * to_date('바꿀 문자')
+
+  * to_char('바꿀 숫자 혹은 문자')
+
+    Select months_between(sysdate, '98/06/08') from dual; #자동으로 형변환 해줌
+
+    Select sysdate - to_date('98/06/08') from dual; #직접 형변환 해야함
+
+    * to_date 활용
+
+      select birthday, to_char(birthday, 'YYYY'), to_char(birthday, 'MM')  from student;
+
+      select name, birthday from student where to_char(birthday, 'MM') = '05';
+
+  * RR
+
+    00~49에서는 20xx 반환
+
+    50~99에서는, rr는 19xx / yy는 20xx 반환
+
+  * to_char함수
+
+    | 종류 | 의미                    | 사용예                   | 결과    |
+    | ---- | ----------------------- | ------------------------ | ------- |
+    | 9    | 9의 개수만큼 자리수     | to_char(1234,'99999')    | 1234    |
+    | 0    | 빈자리를 0으로 채움     | to_char(1234,'099999')   | 001234  |
+    | $    | $ 표시를 붙여서 표시    | to_char(1234, '$9999')   | $1234   |
+    | .    | 소수점 이하를 표시      | to_char(1234, '9999.99') | 1234.00 |
+    | ,    | 천 단위 구분기호를 표시 | to_char(12345, '99,999') | 12,345  |
