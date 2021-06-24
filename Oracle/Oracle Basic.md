@@ -1,6 +1,6 @@
 # Oracle
 
-Oracle 기본 명령어 정리
+Oracle 기본 명령어
 
 * 사용자 조회하기
 
