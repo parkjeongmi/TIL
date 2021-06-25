@@ -2,23 +2,23 @@
 
 * 문자 함수
 
-  | 함수명                           | 의미                                          | 사용예                                                       |
-  | :------------------------------- | :-------------------------------------------- | :----------------------------------------------------------- |
-  | INITCAP                          | 첫 글자만 대문자 변환                         | Select name, id,  **INITCAP(id)** from professor; #Jamie     |
-  | LOWER                            | 전부 소문자 변환                              | Select name, id,  **LOWER(id)** from professor;  #jamie      |
-  | UPPER                            | 전부 대문자 변환                              | Select name, id,  **UPPER(id)** from student; #JAMIE         |
-  | LENGTH                           | 문자열 길이                                   | Select name, id,  **LENGTH(id)** from student; #6            |
-  | LENGTHB                          | 문자열 길이의 바이트 값 (한글 하나가 3바이트) | Select name, id,  **LENGTHB(id)** from student; #6           |
-  | CONTACT                          | 두 문자열 결합해서 출력 (\|\|와 동일)         | Select **contact(name, id)** from student; #select name \|\| id from student; |
-  | SUBSTR(문자열, 시작 위치, 개수)  | 특정 문자만 추출                              | SUBSTR('abc', 1, 2) #ab #Select name, **substr(name, 1, 1)** from student; |
-  | SUBSTRB(문자열, 시작 위치, 개수) | 특정 바이트만 추출                            | SUBSTRB("한글", 1, 2) #한  #Select name, **substrb(name, 1, 3)** from student; |
-  | INSTR(문자열, '특정 문자')       | 특정 문자의 위치                              | SELECT **INSTR(TEL,'-')**                                    |
-  | INSTRB(문자열, '특정 문자')      | 특정 문자의 위치의 바이트 값                  |                                                              |
-  | LPAD(문자열, 자리수, 특정 문자)  | 왼쪽으로 특정 문자를 채움                     | SELECT **LPAD(ID, 12, '_')** from student;                   |
-  | RPAD(문자열, 자리수, 특정 문자)  | 오른쪽으로 특정 문자를 채움                   |                                                              |
-  | LTRIM(문자열, 특정문자)          | 왼쪽의 특정 문자를 삭제함                     | SELECT **LTRIM(TEL, '02')** from student;                    |
-  | RTRIM(문자열, 특정문자)          | 오른쪽의 특정 문자를 삭제함                   |                                                              |
-  | REPLACE(문자열, A,B)             | 문자열에서 A를 B로 치환함                     | SELECT NAME, **REPLACE(NAME, SUBSTR(NAME, 2, 1), '*')** FROM STUDENT; |
+  | 함수명                              | 의미                                          | 사용예                                                       |
+  | :---------------------------------- | :-------------------------------------------- | :----------------------------------------------------------- |
+  | INITCAP                             | 첫 글자만 대문자 변환                         | Select name, id,  **INITCAP(id)** from professor; #Jamie     |
+  | LOWER                               | 전부 소문자 변환                              | Select name, id,  **LOWER(id)** from professor;  #jamie      |
+  | UPPER                               | 전부 대문자 변환                              | Select name, id,  **UPPER(id)** from student; #JAMIE         |
+  | LENGTH                              | 문자열 길이                                   | Select name, id,  **LENGTH(id)** from student; #6            |
+  | LENGTHB                             | 문자열 길이의 바이트 값 (한글 하나가 3바이트) | Select name, id,  **LENGTHB(id)** from student; #6           |
+  | CONTACT                             | 두 문자열 결합해서 출력 (\|\|와 동일)         | Select **contact(name, id)** from student; #select name \|\| id from student; |
+  | **SUBSTR(문자열, 시작 위치, 개수)** | 특정 문자만 추출                              | SUBSTR('abc', 1, 2) #ab #Select name, **substr(name, 1, 1)** from student; |
+  | SUBSTRB(문자열, 시작 위치, 개수)    | 특정 바이트만 추출                            | SUBSTRB("한글", 1, 2) #한  #Select name, **substrb(name, 1, 3)** from student; |
+  | **INSTR(문자열, '특정 문자')**      | 특정 문자의 위치                              | SELECT **INSTR(TEL,'-')**                                    |
+  | INSTRB(문자열, '특정 문자')         | 특정 문자의 위치의 바이트 값                  |                                                              |
+  | LPAD(문자열, 자리수, 특정 문자)     | 왼쪽으로 특정 문자를 채움                     | SELECT **LPAD(ID, 12, '_')** from student;                   |
+  | RPAD(문자열, 자리수, 특정 문자)     | 오른쪽으로 특정 문자를 채움                   |                                                              |
+  | LTRIM(문자열, 특정문자)             | 왼쪽의 특정 문자를 삭제함                     | SELECT **LTRIM(TEL, '02')** from student;                    |
+  | RTRIM(문자열, 특정문자)             | 오른쪽의 특정 문자를 삭제함                   |                                                              |
+  | REPLACE(문자열, A,B)                | 문자열에서 A를 B로 치환함                     | SELECT NAME, **REPLACE(NAME, SUBSTR(NAME, 2, 1), '*')** FROM STUDENT; |
 
   Q. 전화번호(TEL)에서 괄호( ')' ) 앞까지의 지역 번호를 추출하고 싶을 때 ex) 055, 051, 032, 031
 
@@ -141,5 +141,97 @@
     | 9    | 9의 개수만큼 자리수     | to_char(1234,'99999')    | 1234    |
     | 0    | 빈자리를 0으로 채움     | to_char(1234,'099999')   | 001234  |
     | $    | $ 표시를 붙여서 표시    | to_char(1234, '$9999')   | $1234   |
+    | ₩    | ₩ 표시를 붙여서 표시    | to_char(1234, 'l9999')   | ₩1234   |
     | .    | 소수점 이하를 표시      | to_char(1234, '9999.99') | 1234.00 |
     | ,    | 천 단위 구분기호를 표시 | to_char(12345, '99,999') | 12,345  |
+  
+  * ASCII('A')
+  
+  
+
+* 일반 함수
+
+  * NVL(컬럼, 치환할 값) : NULL 값을 만나면 다른 값으로 치환해서 출력
+
+    * NVL(sal, 0) #sal이 null이면 0으로 치환
+
+      ```plsql
+      Select profno, name, pay, nvl(bonus,0), to_char(pay*12+nvl(bonus, 0), '99,999') "TOTAL"
+      from professor
+      where deptno=201;
+      ```
+
+  * NVL2(컬럼, null이면 치환할 값1, null이 아니면 치환할 값2)
+
+    ```plsql
+    Select empno, ename, sal, nvl2(comm, sal+comm, sal*0) "NVL2"
+    from emp
+    where deptno = 30
+    
+    Select empno, ename, to_nvl2(comm, 'Exist', 'NULL')
+    from emp
+    where deptno = 30;
+    ```
+
+  * DECODE(A, B, '1', null) #A가 B일 경우 '1' 출력 (null은 생략 가능)
+
+    ```plsql
+    select deptno, name, decode(deptno, 101, 'Computer Engineering') "DNAME"
+    from professor;
+    ```
+
+    * DECODE 중첩
+
+    ```plsql
+    select deptno, name, decode(deptno, 101, decode(name,'조인형','BEST!',' '),' ') "ETC"
+    from professor;
+    ```
+
+    ```plsql
+    select name, jumin, decode(substr(jumin, 7, 1), '1','MAN','WOMAN') "Gender"
+    from student
+    where deptno1 = 101;
+    ```
+
+    ```plsql
+    select name, tel, decode(substr(tel, 1, instr(tel, ')')-1),'02','SEOUL','031','GYENGGGI','05','BUSAN','052','ULSAN','055','GYEONGNAM',' ') "LOC"
+    from student
+    where deptno1 = 101;
+    ```
+
+    
+
+  * CASE 문
+
+    * CASE 조건 WHEN 결과1 THEN 출력1
+
+      [WHEN 결과2 THEN 출력2]
+
+      ELSE 출력3
+
+      END "컬럼명"
+
+    ```plsql
+    SELECT NAME, SUBSTR(JUMIN,3,2) "MONTH", 
+    CASE WHEN  SUBSTR(JUMIN,3,2) BETWEEN '01' AND '03' THEN '1/4'
+    WHEN SUBSTR(JUMIN,3,2) BETWEEN '04' AND '06' THEN '2/4'
+    WHEN SUBSTR(JUMIN,3,2) BETWEEN '07' AND '09' THEN '3/4'
+    ELSE '4/4'
+    END "Qua"
+    FROM STUDENT
+    ORDER BY "Qua";
+    ```
+
+    ```plsql
+    select empno, ename, sal, 
+    case when sal <= 1000 then 'Level 1'
+    when sal<= 2000 then 'Level 2'
+    when sal <= 3000 then 'Level 3'
+    when sal <= 4000 then 'Level 4'
+    else 'Level 5'
+    end "LEVEL"
+    from emp
+    order by "LEVEL" desc;
+    ```
+
+    
