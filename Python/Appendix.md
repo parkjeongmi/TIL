@@ -51,18 +51,29 @@
 
   ```python
   list = [1,2,3,4,5]
-<<<<<<< HEAD
+  
   index = [0 * i for i in range(len(list))]
   #index = [0,0,0,0,0] -> list의 길이만큼 0 생성
   ```
   
   
-  
-=======
-  index = [0*i for i in range(len(list))]
-  #index = [0,0,0,0,0] -> list의 길이만큼의 0 생성
-  ```
-  
->>>>>>> daily
-  
+* 집합 set 
 
+  중복을 허용하지 않는 자료 구조
+
+  ```python
+  s = {1,3,5,3,}
+  set(s) // {1,3,5}
+  ```
+
+  * 원소 추가
+    * 하나일 경우 : s.add(4)
+    * 여러개일 경우 : s.update([4,5])
+  * 원소 제거 (item으로 직접)
+    * 없으면 오류 발생 : s.remove(4)
+    * 없어도 오류 미발생 : s.discard(4)
+  * 연산
+    * 합집합 : c = a|b , c = a.union(b)
+    * 교집합 : c = a&b, c= a.intersection(b)
+    * 차집합 : c = a-b, c = a.difference(b)
+    * 대칭차집합 : c = a^b, c = a.symmetric_difference(b)
