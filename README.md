@@ -22,10 +22,26 @@
 ## 📙 Oracle
 
 * Oracle Basic
+* SQL 단일행 함수
+* SQL 복수행 함수
+* SQL Query
+* Join
+* DDL
+* DML
+* Constraint
+* 데이터베이스 분석 설계
 
 
 
-## 📕 Java
+## 📕 Web
+
+
+
+
+
+## 📒 Java
+
+
 
 
 
