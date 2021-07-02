@@ -2,7 +2,7 @@
 
 
 
-## 📘 Python
+## 📕 Python
 
 * Stack/Queue
 * Sort
@@ -12,14 +12,14 @@
 
 
 
-## 📗 Git
+## 📙 Git
 
 * Git Basic
 * Shared Repository
 
 
 
-## 📙 Oracle
+##  📒 Oracle
 
 * Oracle Basic
 * SQL 단일행 함수
@@ -33,13 +33,13 @@
 
 
 
-## 📕 Web
+##  📗 Web
 
 
 
 
 
-## 📒 Java
+## 📘 Java
 
 
 
