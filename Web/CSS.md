@@ -1,6 +1,6 @@
 # CSS
 
-### 개요
+### 1. CSS 개요
 
 * 선택자 : CSS3에서 특정 HTML 태그를 선택할 때 사용
 
@@ -65,5 +65,120 @@
   | :nth-child(수열)      | 형제 관계에서 앞에서 수열 번째로 등장하는 태그 선택 | li:nth-child(2n+1)      |
   | :nth-last-child(수열) | 형제 관계에서 뒤에서 수열 번째로 등장하는 태그 선택 | li:nth-last-child(2n+1) |
 
-  
 
+
+### 2. CSS3 단위
+
+* 키워드 단위
+
+* 크기 단위
+
+  | 단위 | 설명        |
+  | ---- | ----------- |
+  | %    | 백분율 단위 |
+  | em   | 배수 단위   |
+  | px   | 필셀 단위   |
+
+* 색상 단위
+
+  * RGB 색상
+
+    ```html
+    <style>
+      h1 {background-color:rgb(255,255,255);}
+    </style>
+    ```
+
+  * RGBA 색상
+
+    ```html
+    <style>
+      h1 {background-color : rgba(255,255,255,0.5);}
+    </style>
+    ```
+
+  * HEX 코드
+
+    ```html
+    <style>
+      h1 {background-color : #0094FF;}
+    </style>
+    ```
+
+    
+
+### CSS 속성
+
+* 박스 속성
+
+  * margin속성 : 테두리와 다른 태그 사이의 테두리 바깥쪽 여백
+  * border속성 : 테두리
+  * padding속성 : 테두리와 글자 사이의 테두리 안쪽 여백, 배경은 padding 영역까지만 적용
+  * width속성 : 글자를 감싸는 영역의 가로 크기
+  * height속성 : 글자를 감싸는 영역의 세로 크기
+
+  ```html
+  <style>
+  div{
+  	width : 100px; heigth : 100px;
+    background-color : red;
+    border : 20px solid black;
+    margin : 10px; padding : 30px;}
+  </style>
+  ```
+
+* 가시 속성
+
+  태그가 화면에 보이는 방식을 지정
+
+  * display 속성
+
+    | 키워드       | 설명                           |
+    | ------------ | ------------------------------ |
+    | none         | 화면에 보이지 않음             |
+    | block        | 블록 박스 형식으로 지정        |
+    | inline       | 인라인 박스 형식으로 지정      |
+    | inline-block | 블록과 인라인 중간 형태로 지정 |
+
+* 배경 속성
+
+  | 속성                  | 설명                         |
+  | --------------------- | ---------------------------- |
+  | background-image      | 배경 이미지 삽입             |
+  | background-size       | 배경 이미지의 크기 지정      |
+  | background-repeat     | 배경 이미지의 반복 형태 지정 |
+  | background-attachment | 배경 이미지의 부착 형태 지정 |
+  | background-position   | 배경 이미지의 위치 지정      |
+  | background            | 한 번에 모든 배경 속성 입력  |
+
+* 글자 속성
+
+* 위치 속성
+
+  position : 요소의 위치 지정 형식 설정
+
+  * 절대 위치 좌표 : absolute, fixed
+
+  * 상대 위치 좌표 : relative, static
+
+    | 키워드   | 설명                                |
+    | -------- | ----------------------------------- |
+    | absolute | 절대 위치 좌표 설정                 |
+    | fixed    | 화면을 기준으로 절대 위치 좌표 설정 |
+    | relative | 초기 위치에서 상하좌우로 위치 이동  |
+    | static   | 위쪽에서 아래쪽으로 순서대로 배치   |
+
+* 유동 속성
+
+  * Float 속성
+
+    * 웹 페이지의 레이아웃을 잡을 때
+
+    * 웹 브라우저 크기에 상관없이 공지 등을 일정한 위치에 고정할 때
+
+      | 키워드 | 설명                 |
+      | ------ | -------------------- |
+      | left   | 태그를 왼쪽에 붙임   |
+      | right  | 태그를 오른쪽에 붙임 |
+
+      
