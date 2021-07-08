@@ -61,6 +61,27 @@
   }
   ```
 
+* 예시 : 프로그래머스 - 위장
+
+  ```c++
+  #include <vector>
+  #include <unordered_map>
+  #include <string>
+  using namespace std;
+   
+  int solution1(vector<vector<string>>clothes){
+      int answer = 1;
+      unordered_map <string, int> m;
+      for (auto clo : clothes){
+          m[clo[1]] += 1;
+      }
+      for (auto n : m ){
+          answer *= (n.second+1);
+      }
+      return answer-1;
+  }
+  ```
+
   
 
 ## 2) Map
@@ -114,7 +135,26 @@
     d.clear(); //clear 함수로 모든 요소 삭제
     ```
 
-    
+* 예시 : 프로그래머스 위장
+
+  ```c++
+  #include <string>
+  #include <vector>
+  #include <map>
+  
+  using namespace std;
+  
+  int solution(vector<vector<string>> clothes) {
+      int answer = 1;
+      map<string,int> m;
+      for(auto clo : clothes){
+          m[clo[1]]+=1;
+      }
+      for(auto iter=m.begin();iter!=m.end();iter++){
+          answer*=iter->second+1;
+      }
+      return answer-1;
+  }
+  ```
 
   
-
