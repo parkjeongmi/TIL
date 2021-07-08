@@ -90,3 +90,29 @@ sort(a,b) //a는 시작점의 주소, b는 마지막 주소 +1
   ```
 
   
+
+## 기타
+
+* string::substr(시작인덱스, 문자열 길이)
+
+  ```c++
+  s1 = s.substr(2,3) //2번 인덱스부터 문자열 3개
+  ```
+
+* string::substr(시작인덱스)
+
+  ```c++
+  s2 = s.substr(1) //1번 인덱스부터 문자열 끝까지
+  ```
+
+* 예시
+
+  ```c++
+  if (phone_book[i] == phone_book[i+1].substr(0, phone_book[i].size()))
+  //1) phone_book의 i번째 원소와
+  //2) i+1번째 원소를 0부터 phone_book[i]의 사이즈만큼의 길이로 자른 것
+  //1)과 2)가 같다면!
+  ```
+
+  
+
