@@ -1,37 +1,47 @@
-# sort
+# Sort
 
-## 헤더파일
+* 헤더
 
 ```c++
 #include <algorithm>
 ```
 
+* 선언
+
 ```c++
-sort(a,b) //a는 시작점의 주소, b는 마지막 주소 +1
+sort(start, end) //[start, end) 범위의 인자를 오름차순으로 정렬
+sort(start, end, compare) //compare 기준으로 정렬
+sort(start, end, greater<자료형>()) //[start, end) 범위의 인자를 내림차순으로 정렬
 ```
 
-* 예시
+* 예시(내림차순) : 프로그래머스 H-Index
 
   ```c++
-  #include <iostream>
-  #include algorithm>
+  #include <algorithm>
+  #include <string>
+  #include <vector>
   
   using namespace std;
   
-  int main(void){
-    int a[10] = {9,3,5,4,1,10,8,6,7,2};
-    sort(a, a+10);
-    for (int i=0; i<10; i++){
-      cout << a[i] << ' ';
+  int solution(vector<int> citations){
+    int answer = 0;
+    sort(citations.begin(), citations.end(), greater<int>()); //greater<int>()
+    if(!citations[0]) return 0;
+    for(int i=0; i<citations.size(); i++){
+      if(citations[i]>i) answer++;
+      else break;
     }
+    return answer;
   }
   ```
 
 
 
-## compare() 함수
+## + sort(start, end, compare)
 
-* Compare() 함수를 sort()의 세 번째 인자 값으로 넣으면, 해당 함수의 반환 값에 맞게 정렬이 동작
+* compare() 함수를 sort()의 세 번째 인자 값으로 넣으면, 해당 함수의 반환 값에 맞게 정렬이 동작
+
+* 예시
 
   ```c++
   #include <iostream>
@@ -44,12 +54,37 @@ sort(a,b) //a는 시작점의 주소, b는 마지막 주소 +1
   
   int main(void){
     int a[10] = {9,3,5,4,1}
-    sort(a, a+10, compare);
+    sort(a, a+10, compare); //위의 compare에 따라 정렬함
     for(int i=0;i<10;i++){
       cout << a[i] << ' ';
     }
   }
   ```
+
+* 예시 : 프로그래머스 - 가장 큰 수
+
+  ```c++
+  #include <string>
+  #include <vector>
+  #include <algorithm>
+  using namespace std;
+  
+  bool compare(int a, int b){
+    string first = to_string(a) + to_string(b);
+    string second = to_string(b) + to_string(a);
+    return first > second;
+  }
+  string solution(vector<int> numbers){
+    string answer = "";
+    sort(numbers.begin(), numbers.end(), compare);
+    for(auto&i:numbers){
+      answer+=to_string(i);
+    }
+    return answer[0]=='0' ? "0" : answer; // a ? b : c -> a이면 b이고, 아니면 c
+  }
+  ```
+
+  
 
 * 특정한 변수 기준으로 정렬
 
@@ -91,7 +126,7 @@ sort(a,b) //a는 시작점의 주소, b는 마지막 주소 +1
 
   
 
-## 기타
+## + Appendix
 
 * string::substr(시작인덱스, 문자열 길이)
 
