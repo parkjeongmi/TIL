@@ -157,4 +157,84 @@
   }
   ```
 
+* 예시 : 프로그래머스 베스트 앨범
+
+  ```c++
+  #include <map>
+  #include <vector>
+  #include <string>
   
+  using namespace std;
+  vector<int> solution(vector<string> genres, vector<int> plays){
+    vector <int> answer;
+    std::map<string, int> music;
+    std::map<string, map<int, int>> musicalist;
+    for(int i=0; i<genres.size(); i++){
+      music[genres[i]] += plays[i];
+      musicalist[genres[i]][i] = plays[i];
+    }
+    
+    while (music.size()>0){
+      string genre{};
+      int max{0};
+      for(auto mu : music){
+        if(mu.second > max){
+          max = mu.second;
+          genre = mu.first;
+        }
+      }
+      
+      for(int i=0; i<2; i++){
+        int val=0, ind=-1;
+        for(auto m1 : musicalist[genre]){
+          if(val<m1.second){
+            val = m1.second;
+            ind = m1.first;
+          }
+        }
+        
+        if (ind==-1)break;
+        answer.push_back(ind);
+        musicalist[genre].erase(ind);
+      }
+      music.erase(genre);
+    }
+    return answer;
+  }
+  ```
+
+  * vector에서 push하기
+
+    ```c++
+    vector<int> answer;
+    answer.push_back(ind);
+    ```
+
+  * vector에서 erase하기
+
+    ```c++
+    musicalist[genre].erase(ind);
+    music.erase(genre);
+    //erase(삭제할 요소의 위치)
+    ```
+
+  * map 중첩해서 사용하기
+
+    ```c++
+    map<string,map<int,int>> musicalist;
+    ```
+
+  * 최대 값 구하기
+
+    ```c++
+    for(auto mu :music){
+      int max{0};
+      string genre{};
+      if (mu.second > max){
+        max = mu.second;
+        genre = mu.first;
+      }
+    }
+    ```
+
+    
