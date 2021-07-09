@@ -125,6 +125,38 @@
   }
   ```
 
+* 예시 : 프로그래머스 - 더 맵게
+
+  ```c++
+  #include <queue>
+  #include <string>
+  using namespace std;
+  
+  int solution(vector<int> scoville, int K){
+    int answer = 0;
+    priority_queue<int, vector<int>, greater<int>> q;
+    for(auto&i :scoville){
+      q.push(i);
+    }
+    while(1){
+      int min1 = q.top();
+      q.pop();
+      if(min1>=K) break;
+      else if(q.empty){
+        answer -=1;
+        break;
+      }
+      int min2 = q.top();
+      q.pop();
+      q.push(min1+2*min2);
+      answer++;
+    }
+    return answer;
+  }
+  ```
+
+  
+
 * 예시 : 오름차순
 
   ```c++
