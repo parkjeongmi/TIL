@@ -149,5 +149,24 @@
 
 
 
-# Stack
+# 2) Stack
 
+* 선입후출 (First In Last Out)
+
+* 헤더
+
+  ```c++
+  #include <stack>
+  ```
+
+* 선언
+
+  ```c++
+  stack<int> s;
+  //stack<type> name;
+  
+  stack<int> s2({1,2,3,4,5});
+  s2.top() //5가 나옴
+  ```
+
+  
