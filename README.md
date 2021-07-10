@@ -37,6 +37,7 @@
 * Hash
 * Sort
 * Vector
+* Queue, Stack
 
 
 
