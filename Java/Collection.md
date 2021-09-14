@@ -145,3 +145,5 @@ Class FruitBox<T>{
   * <?extends T> : T 또는 T의 자손 타입을 의미
   * extends 다음에 나오는 클래스와 그 자식 클래스들이 제네릭 자료형으로 가능
 
+
+
