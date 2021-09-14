@@ -105,3 +105,43 @@ map1.remove("Production_cost");
 
 ```
 
+
+
+## 3. 제네릭스
+
+* 클랙스 내부에 사용할 데이터 타입을 외부에서 지정
+* 클래스를 정의할 때 데이터의 타입을 확정하지 않고, 객체를 생성할 때 지정
+* 구현의 편의성과 자료형의 안정성 보장 위해 사용
+
+```java
+//타입 매개변수는 하나의 대문자 (주로 'T')
+//객체 생성시에 <> 안에 매개변수 타입을 선언, 컴파일러에게 사용 타입 전달
+Class FruitBox<T>{
+  T item;
+  public void store(T item){
+    this.item = item;
+  }
+  public T pullOut{
+    return item;
+    )
+}
+```
+
+* 제네릭스의 와일드 카드
+
+  * '?'문자로 표시하며 임의의 자료형으로 지정할 수 있도록 해줌
+
+  ```java
+  public static void printAll(List<?> list){
+    for(object e : list){
+      System.out.println(e);
+    }
+  }
+  ```
+
+* 클래스 상속 계층 구조의 와일드 카드
+
+  * super와 extends 예약어를 사용하여 상속 구조상의 경계 지정
+  * <?extends T> : T 또는 T의 자손 타입을 의미
+  * extends 다음에 나오는 클래스와 그 자식 클래스들이 제네릭 자료형으로 가능
+
