@@ -116,8 +116,6 @@ public class ThrowsEX{
 }
 ```
 
-## 4. 사용자 정의 예외
-
 * 강제로 Exception 발생시키기
 
   ```java
@@ -143,4 +141,33 @@ public class ThrowsEX{
   }
   ```
 
-  
+## 4. 사용자 정의 예외
+
+* 기존에 정의된 예외 클래스를 '상속'받아 새로운 예외 클래스를 정의
+
+```java
+Class AgeInputException extends Exception{
+  public AgeInputException(){
+    super("유효하지 않은 나이가 입력되었습니다.");
+  }
+}
+
+//사용자 정의 예외 클래스의 처리
+// 1) 예외상황이 메서드 내에서 처리되지 않으면, 메서드를 호출한 영역으로 예외의 처리가 넘어간다.
+try{
+  int age = readAge();
+  System.out.println(age);
+} catch(AgeInputException e){
+  System.out.println(e.getMessage());
+}
+
+// 2) 예외가 readAge 메서드 내에서 처리되지 않고 넘어감을 명시
+public static void readAge throws AgeInputException{
+  Scanner sc = new Scanner(System.in);
+  int age = scanner.nextInt();
+  if (age<0){
+    AgeInputException e = new AgeInputException() throw e; //예외상황 발생지점! 예외를 던진다.
+  }
+}
+```
+
