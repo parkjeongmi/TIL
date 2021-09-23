@@ -1,4 +1,4 @@
-# Polymorphism
+# Polymorphism / 다형성
 
 * 다형성은 부모의 타입으로 다양한 형태의 자식 객체를 생성, 참조 할 수 있는 것
 
