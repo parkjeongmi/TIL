@@ -1,4 +1,4 @@
-# Collection
+# Collection / 컬렉션
 
 * 객체를 담을 수 있는 신축성 있는 주머니
 
