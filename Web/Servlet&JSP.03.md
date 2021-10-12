@@ -4,16 +4,23 @@
 
 * Java를 이용하여 Database에 있는 값을 활용하기 위한 API
 * 연결 순서
-  * 드라이버 등록
-  * DBMS 연결
-  * Statement 생성
-  * SQL 생성
-  * 결과 받기
-  * 연결 닫기
+  * 드라이버 등록  `Class.forName("oracle.jdbc.driver.OracleDriver");`
+  * DBMS 연결 `Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.100:1521:VCC", "studentId", "studentPassword");`
+  * Statement 생성 `Statement stmt = conn.createStatement();`
+  * SQL 전송 `stmt.executeQuery("SELECT * FROM TBL EMPLOYEE"); //SELECT` `stmt.executeUpdate("DELETE FROM TBL EMPLOYEE"); //DML`
+  * 결과 받기 `Result rs = stmt.executeQuery("SELECT * FROM TBL_EMPLOYEE");//SELECT  ` `int result = stmt.executeUpdate("DELETE FROM TBL_EMPLOYEE"); //DML`
+  * 연결 닫기 `rs.close();` `stmt.close();` `conn.close();`
 
 ## DBMS
 
+* DML : 데이터의 입력, 수정, 삭제
+
+* DML의 결과는 성공한 개수 `int result = stmt.executeUpdate(query);`
+
 * DML에서의 Transaction 처리
+
+  * 코드 상에 transaction 설정 안해주면 DML 구문 수행 후 자동 commit이 수행됨
+  * 임의로 transaction 수행하고자 한다면, `setAutoCommit(false)` 사용해 수동으로 commit, rollback 처리
 
   ```java
   conn.setAutoCommit(false);
@@ -21,9 +28,7 @@
   conn.rollback();
   ```
 
-  
-
-## PreparedStatement
+## PreparedStatement : SQL 데이터의 동적인 적용
 
 * SQL 데이터의 동적인 적용
 
@@ -106,4 +111,12 @@
 * 정리2
   * `<form> `태그의 action ="" ["method"(일반적으로 POST)]
   * `<a>` 태그의 href = "" [GET]
-  * `js`ㅇㅔ서 Location.href = "/login" [GET]
+  * `js`ㅇㅔ서 Location.href = "/login" [GET]'
+
+
+
+* 정리3
+  * SELECT = executeQuery() -> ResultSet -> while(rs.next()) -> entity(DTO)
+  * UPDATE, INSERT, DELETE = executeUpdate() -> int -> 변경된 row의 수
+  * Finally 구문에서 사용한 자원을 꼭 반납해야 함(얻은 순서의 역순 rs-> stmt -> conn)
+
